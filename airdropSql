@@ -1,0 +1,16 @@
+INSERT INTO air_drop_20180621
+SELECT
+ DISTINCT phone_address AS address
+FROM
+ etz_recommend_record
+ WHERE
+ type = '个人奖励' && status = '已激活';
+
+
+ CREATE TABLE air_drop_20180621 (
+ address VARCHAR(100) PRIMARY KEY,
+ state INT NOT NULL default 0,
+ txHash VARCHAR(100),
+ createAt timestamp default now(),
+ updateAt timestamp default now(),
+);
